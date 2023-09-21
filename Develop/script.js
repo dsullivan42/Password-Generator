@@ -33,7 +33,7 @@ function askLower(){
   lower = prompt("Would you like to include lower case letters in your password? yes or no").toLowerCase();
   console.log(lower);
   if((lower !== "yes") && (lower !== "no")){
-    console.log("Please enter yes or no")
+    console.log("Please enter yes or no");
     askLower();
   }
   else if (lower === "yes"){
@@ -42,6 +42,47 @@ function askLower(){
   }
   else{
     askUpper();
+  }
+}
+function askUpper(){
+  upper = prompt("Would you like to include upper case letters in your password? yes or no").toLowerCase();
+  console.log(upper);
+  if ((upper !== "yes") && (upper !== "no")){
+    console.log("Please enter yes or no");
+    askUpper();
+  }
+  else if (upper === "yes"){
+    availablePassword = upperLetters.concat();
+    askNumeric()
+  }
+  else{
+    askNumeric();
+  }
+}
+function askNumeric(){
+  numeric = prompt("Would you like your password to contain numeric characters? yes or no").toLowerCase();
+  console.log(numberic);
+  if ((numeric !== "yes") && (numeric !== "no")){
+    console.log("Please enter yes or no");
+    askNumeric();
+  }
+  else if (numeric === "yes"){
+    availablePassword = numbers.concat();
+    askSymbols();
+  }
+  else{
+    askSymbols();
+  }
+}
+function askSymbols(){
+  symbolic = prompt("Would you like your password to contain symbol characters? yes or no").toLowerCase();
+  console.log(symbolic);
+  if((symbolic !== "yes") && (symbolic !== "no")){
+    console.log("Please enter yes or no");
+    askSymbols();
+  }
+  else if (symbolic === "yes"){
+    availablePassword = symbols.concat();
   }
 }
 

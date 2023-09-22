@@ -101,7 +101,7 @@ function askSymbols(){
 }
 //calling the askCharacters function to start the process of asking password criteria
 askCharacters();
-//function that randomly generates the password based on the user selected criteria
+//function that randomly generates the password based on the user selected criteria using a for loop to loop through the availablePassword array and randomly select characters
 function generatePassword(){
   var password = "";
   for (var i=0; i < characters; i++){

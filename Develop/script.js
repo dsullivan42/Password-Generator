@@ -1,9 +1,9 @@
 // Assignment Code
+var generateBtn = document.querySelector("#generate");
 var lowerLetters = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-var upperLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","V"]
+var upperLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var numbers = [1,2,3,4,5,6,7,8,9,0]
 var symbols = ["!","@","#","$","%","^","&","*","(",")","_","-","=","+","[","{","]","}","|", "/", ",",".","<",">","~"]
-var generateBtn = document.querySelector("#generate");
 var availablePassword= []
 // Write password to the #password input
 function writePassword() {
@@ -13,7 +13,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+console.log(password);
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 function askCharacters(){
@@ -37,7 +37,7 @@ function askLower(){
     askLower();
   }
   else if (lower === "yes"){
-    availablePassword = lowerLetters.concat();
+    availablePassword = availablePassword.concat(lowerLetters);
     askUpper();
   }
   else{
@@ -52,7 +52,7 @@ function askUpper(){
     askUpper();
   }
   else if (upper === "yes"){
-    availablePassword = upperLetters.concat();
+    availablePassword = availablePassword.concat(upperLetters);
     askNumeric()
   }
   else{
@@ -61,13 +61,13 @@ function askUpper(){
 }
 function askNumeric(){
   numeric = prompt("Would you like your password to contain numeric characters? yes or no").toLowerCase();
-  console.log(numberic);
+  console.log(numeric);
   if ((numeric !== "yes") && (numeric !== "no")){
     console.log("Please enter yes or no");
     askNumeric();
   }
   else if (numeric === "yes"){
-    availablePassword = numbers.concat();
+    availablePassword = availablePassword.concat(numbers);
     askSymbols();
   }
   else{
@@ -82,8 +82,20 @@ function askSymbols(){
     askSymbols();
   }
   else if (symbolic === "yes"){
-    availablePassword = symbols.concat();
+    availablePassword = availablePassword.concat(symbols);
+    generatePassword();
+  }
+  else {
+    generatePassword();
   }
 }
-
 askCharacters();
+console.log(availablePassword)
+function generatePassword(){
+  var password = "";
+  for (var i=0; i < characters; i++){
+    var random = Math.floor(Math.random() *availablePassword.length);
+    password +=availablePassword[random];
+  }
+  return password;
+}

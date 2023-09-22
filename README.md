@@ -4,3 +4,5 @@ In this assignment, we were given the code for the HTML and CSS, and were requir
 
 
 ![cap1](https://github.com/dsullivan42/Password-Generator/assets/97996876/43979007-568c-4df8-9b7e-1b28c007fe25)
+
+https://dsullivan42.github.io/Password-Generator/
